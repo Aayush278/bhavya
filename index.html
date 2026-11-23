@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>20 // Brotherhood For Life</title>
+  
+  <!-- Open Graph / Meta for Hosting & Sharing (WhatsApp, iMessage, Twitter, etc.) -->
+  <meta name="description" content="Happy 20th Birthday, Bro. A letter from someone who's standing right beside you for life.">
+  <meta property="og:title" content="Happy 20th Birthday, Bro">
+  <meta property="og:description" content="You may have lost your partner, but you have earned a brother for life. Chapter 20 begins now.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#09090b">
+  
+  <!-- Fonts: Inter & Plus Jakarta Sans for clean minimalist typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;1,400;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Minimalist Canvas for subtle ambient dust/embers & celebration -->
+  <canvas id="ambient-canvas"></canvas>
+  <canvas id="confetti-canvas"></canvas>
+
+  <div class="site-wrapper">
+    <!-- Minimalist Sticky Header -->
+    <header class="minimal-nav">
+      <div class="nav-brand">
+        <span class="mono-date">24.11.2026</span>
+        <span class="nav-separator">/</span>
+        <span class="nav-chapter">CHAPTER 20</span>
+      </div>
+
+      <div class="nav-tools">
+        <button id="audio-toggle-btn" class="icon-btn" title="Toggle Sound" aria-label="Toggle ambient music">
+          <svg class="audio-icon audio-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <line x1="23" y1="9" x2="17" y2="15"></line>
+            <line x1="17" y1="9" x2="23" y2="15"></line>
+          </svg>
+          <svg class="audio-icon audio-playing" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span class="btn-text">Ambiance</span>
+        </button>
+
+        <button id="personalize-btn" class="icon-btn" title="Customize Names" aria-label="Personalize names">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 20h9"></path>
+            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+          </svg>
+          <span class="btn-text">Names</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Clean Container -->
+    <main class="main-content">
+
+      <!-- Minimal Hero Intro -->
+      <section class="hero-block">
+        <div class="sub-label mono-text">MILESTONE XX • DAY 1 TO FOREVER</div>
+        <h1 class="hero-heading">
+          Happy 20th,<br>
+          <span class="bro-name-target">Bro</span>.
+        </h1>
+        <p class="hero-subtext">
+          A quiet reminder of who you are, what you've survived, and who has your back through all of it.
+        </p>
+      </section>
+
+      <!-- Minimalist Architectural Candle Area -->
+      <section class="candle-installation" id="candle-interactive-zone">
+        <div class="candle-ambient-light" id="candle-ambient-glow"></div>
+
+        <div class="candle-stage-clean">
+          <div class="candle-pillar-wrap" id="candle-assembly" title="Tap flame to make your wish">
+            
+            <!-- Smoke simulation canvas directly above the wick -->
+            <canvas id="smoke-canvas" width="200" height="200"></canvas>
+
+            <!-- Minimalist Flame -->
+            <div class="flame-element" id="flame-wrapper">
+              <div class="flame-glow-halo"></div>
+              <div class="flame-tear flame-main"></div>
+              <div class="flame-tear flame-inner"></div>
+              <div class="flame-tear flame-white"></div>
+            </div>
+
+            <!-- Sleek Wick -->
+            <div class="wick-stem"></div>
+
+            <!-- Minimalist Monolith Candle Cylinder -->
+            <div class="monolith-candle">
+              <div class="monolith-rim"></div>
+              <div class="monolith-face">
+                <span class="monolith-number">20</span>
+                <span class="monolith-line"></span>
+              </div>
+            </div>
+
+            <!-- Pedestal Base -->
+            <div class="pedestal-disk"></div>
+            <div class="pedestal-shadow"></div>
+          </div>
+        </div>
+
+        <div class="candle-action-prompt">
+          <p class="candle-guidance" id="ritual-instruction">
+            Make a silent wish for age 20. Then tap the flame to blow it out.
+          </p>
+
+          <div class="candle-action-row">
+            <button id="blow-btn" class="minimal-pill-btn">
+              <span>Extinguish Candle</span>
+            </button>
+            <button id="mic-blow-btn" class="minimal-ghost-btn" title="Use mic to blow it out with breath">
+              <span>🎙️ Blow with Breath</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Minimal Wish Confirmation (Fades in on blowout) -->
+        <div class="wish-sealed-message hidden" id="wish-unlocked-card">
+          <div class="wish-sealed-inner">
+            <div class="sealed-status-mono">● WISH SEALED</div>
+            <p class="sealed-lead">
+              Whatever you wished for, brother — we're making it happen.
+            </p>
+            <p class="sealed-detail">
+              Two decades down. The next decade belongs to your growth, your discipline, and your peace.
+            </p>
+            <button id="relight-btn" class="minimal-text-btn">
+              <span>Relight candle</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- The Real Talk Letter (Clean Editorial Reading Experience) -->
+      <article class="letter-editorial">
+        <div class="editorial-header">
+          <span class="mono-meta">THE BROTHERHOOD DISPATCH</span>
+          <span class="mono-meta">REF: 20TH BIRTHDAY</span>
+        </div>
+
+        <div class="editorial-body">
+          <h2 class="editorial-title">
+            To <span class="bro-name-target">Bro</span>,
+          </h2>
+
+          <p class="lead-editorial-p">
+            Turning 20 is a milestone that deserves to be celebrated, but I know this birthday comes with a heavy quiet.
+          </p>
+
+          <blockquote class="clean-quote">
+            <p>
+              "You may have lost your partner, and honestly, none of us know what tomorrow holds or if your paths will ever reconcile. But listen to me carefully: <strong>you have earned a brother for life, man</strong>."
+            </p>
+          </blockquote>
+
+          <p>
+            I know it aches. When you commit your heart and energy to someone, navigating that sudden silence isn't easy. You don't have to put on a mask or pretend it's nothing. Take your time to grieve it, to process it, and to feel it. That only proves how genuine your loyalty is.
+          </p>
+
+          <div class="minimal-callout-box">
+            <div class="callout-mono">THE TRUTH TODAY</div>
+            <p>
+              In this life, partners and circumstances may shift, but the bond we built is unconditional. You never have to walk through a dark room alone.
+            </p>
+          </div>
+
+          <p>
+            I'm talking about a brother who answers at 3:00 AM without hesitation. A brother who tells you the truth straight, who celebrates your quiet victories, and who holds down the fort when you need to rest. If you need to vent, I'm right here. If you need to hit the gym and pour every drop of frustration into the iron, let's lock in.
+          </p>
+
+          <p>
+            You are twenty years old today. Your story didn't end with this heartbreak — it only forged the strength you need for what's ahead. Hold your head high, brother.
+          </p>
+
+          <div class="editorial-signature">
+            <div class="sig-title">Always in your corner,</div>
+            <div class="sig-handwritten sender-name-target">Your Brother For Life</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Minimalist Brotherhood Code (Clean 2x2 Grid) -->
+      <section class="creed-minimal">
+        <div class="section-meta-header">
+          <span class="mono-meta">01 // CODE</span>
+          <h3>The 20th Year Principles</h3>
+        </div>
+
+        <div class="minimal-grid">
+          <div class="grid-cell">
+            <div class="cell-mono">01 / LIFELINE</div>
+            <h4>3:00 AM Rule</h4>
+            <p>Any hour, any circumstance. You call, I pick up. Zero judgment, zero lectures.</p>
+          </div>
+
+          <div class="grid-cell">
+            <div class="cell-mono">02 / LOYALTY</div>
+            <h4>Safe Ground</h4>
+            <p>Your name is protected in rooms you aren't in. When doubt creeps in, I'll believe in you enough for the both of us.</p>
+          </div>
+
+          <div class="grid-cell">
+            <div class="cell-mono">03 / EVOLUTION</div>
+            <h4>The Rebuild</h4>
+            <p>We convert every ounce of pain into mental toughness, physical discipline, and unshakeable character.</p>
+          </div>
+
+          <div class="grid-cell">
+            <div class="cell-mono">04 / SOLIDARITY</div>
+            <h4>Never Solo</h4>
+            <p>Wins are doubled. Losses are halved. Whatever life throws at either of us, we handle it as brothers.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Minimalist "Open When..." Drawers -->
+      <section class="vault-minimal">
+        <div class="section-meta-header">
+          <span class="mono-meta">02 // FIELD NOTES</span>
+          <h3>Open When You Need It</h3>
+        </div>
+
+        <div class="drawers-list">
+          
+          <div class="drawer-item vault-card" data-card="1">
+            <button class="drawer-trigger" aria-expanded="false">
+              <span class="drawer-num">01</span>
+              <span class="drawer-title">Open when you miss her or feel the ache</span>
+              <span class="drawer-plus">+</span>
+            </button>
+            <div class="drawer-body card-drawer">
+              <div class="drawer-content-clean">
+                <p>
+                  Take a slow, full breath. Healing isn't a straight line. Missing someone doesn't mean you're failing; it just means what you felt was authentic.
+                </p>
+                <p>
+                  If life brings you two back together later on, let it happen from places of wholeness. And if it doesn't, trust that an even more aligned chapter is waiting for you. Until then, you don't carry this alone. Send a text, drop by, or let's get out of the house.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="drawer-item vault-card" data-card="2">
+            <button class="drawer-trigger" aria-expanded="false">
+              <span class="drawer-num">02</span>
+              <span class="drawer-title">Open when you feel lost about the future</span>
+              <span class="drawer-plus">+</span>
+            </button>
+            <div class="drawer-body card-drawer">
+              <div class="drawer-content-clean">
+                <p>
+                  You're twenty. Nobody has life figured out right now. Your twenties are for testing your limits, building skills, failing forward, and discovering what truly matters to you.
+                </p>
+                <p>
+                  Don't worry about the next five years today. Just win the next 24 hours. The rest stacks naturally.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="drawer-item vault-card" data-card="3">
+            <button class="drawer-trigger" aria-expanded="false">
+              <span class="drawer-num">03</span>
+              <span class="drawer-title">Open when you doubt your worth</span>
+              <span class="drawer-plus">+</span>
+            </button>
+            <div class="drawer-body card-drawer">
+              <div class="drawer-content-clean">
+                <p>
+                  One ended relationship or one rough chapter doesn't define who you are. You are loyal, resilient, and capable of far more than your current mood suggests.
+                </p>
+                <p>
+                  Square your shoulders and look straight ahead. You are worthy of deep respect and immense success.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="drawer-item vault-card" data-card="4">
+            <button class="drawer-trigger" aria-expanded="false">
+              <span class="drawer-num">04</span>
+              <span class="drawer-title">Open when it's time to lock in</span>
+              <span class="drawer-plus">+</span>
+            </button>
+            <div class="drawer-body card-drawer">
+              <div class="drawer-content-clean">
+                <p>
+                  Turn heartbreak into fuel. Use this quiet season to build the strongest version of your body, mind, and craft. Let's get to work.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Minimalist Memory Frame -->
+      <section class="memory-minimal">
+        <div class="section-meta-header">
+          <span class="mono-meta">03 // ARCHIVE</span>
+          <h3>Brotherhood Memory</h3>
+        </div>
+
+        <div class="clean-frame" id="polaroid-frame">
+          <div class="clean-frame-viewport">
+            <div class="default-illustration">
+              <div class="monochrome-graphic">
+                <div class="graphic-line"></div>
+                <div class="graphic-center">
+                  <span class="graphic-initials">BROTHERS</span>
+                </div>
+                <div class="graphic-line"></div>
+              </div>
+              <span class="upload-hint">Tap to add a photo of us</span>
+            </div>
+            <img id="custom-photo-preview" class="custom-photo-img hidden" alt="Brothers memory">
+            <input type="file" id="photo-upload-input" accept="image/*" class="hidden">
+          </div>
+          <div class="clean-frame-footer">
+            <span class="frame-label mono-text">EST. DAY 1 — CHAPTER 20</span>
+            <span class="frame-date mono-text">24.11.2026</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Minimalist Goal Input -->
+      <section class="goal-minimal">
+        <div class="section-meta-header">
+          <span class="mono-meta">04 // COMMITMENT</span>
+          <h3>Lock in your #1 Focus for Age 20</h3>
+        </div>
+
+        <form id="goal-form" class="clean-form">
+          <div class="input-line-wrap">
+            <input 
+              type="text" 
+              id="goal-input" 
+              placeholder="Write one promise to yourself for this year..." 
+              maxlength="120"
+              autocomplete="off"
+              required
+            >
+            <button type="submit" id="seal-goal-btn" class="minimal-pill-btn small-btn">
+              <span>Lock It In</span>
+            </button>
+          </div>
+        </form>
+
+        <div id="saved-goal-box" class="saved-commitment-box hidden">
+          <div class="saved-commitment-header">
+            <span class="commitment-tag mono-text">RECORDED COMMITMENT:</span>
+            <button type="button" id="clear-goal-btn" class="minimal-text-btn clear-tag" title="Clear this commitment">Remove</button>
+          </div>
+          <p id="saved-goal-text" class="commitment-text"></p>
+        </div>
+      </section>
+
+      <!-- Clean Minimal Footer -->
+      <footer class="minimal-footer">
+        <p class="footer-tagline">
+          Brothers for life. November 24, 2026.
+        </p>
+        <p class="footer-sub">
+          Happy 20th Birthday, <span class="bro-name-target">Bro</span>.
+        </p>
+      </footer>
+
+    </main>
+  </div>
+
+  <!-- Minimal Modal for Names -->
+  <div class="modal-backdrop hidden" id="personalize-modal">
+    <div class="minimal-modal-card">
+      <div class="modal-head-row">
+        <h4>Personalize Names</h4>
+        <button id="close-modal-btn" class="modal-x" aria-label="Close modal">&times;</button>
+      </div>
+
+      <p class="modal-note">
+        Customize names to address him directly:
+      </p>
+
+      <form id="personalize-form">
+        <div class="field-item">
+          <label for="bro-name-input">Bro's Name</label>
+          <input type="text" id="bro-name-input" placeholder="e.g. Alex" maxlength="30" required>
+        </div>
+
+        <div class="field-item">
+          <label for="sender-name-input">Your Name</label>
+          <input type="text" id="sender-name-input" placeholder="e.g. Sam" maxlength="30" required>
+        </div>
+
+        <div class="modal-btn-row">
+          <button type="button" id="reset-names-btn" class="minimal-ghost-btn">Reset</button>
+          <button type="submit" class="minimal-pill-btn">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

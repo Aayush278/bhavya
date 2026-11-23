@@ -1,0 +1,1093 @@
+/* ==========================================================================
+   MINIMALIST EDITORIAL THEME
+   20th Birthday Bro Website
+   Aesthetic: Quiet Luxury, Monograph Typography, Architectural Candle, Warm Flame
+   ========================================================================== */
+
+:root {
+  --bg-black: #09090b;
+  --bg-surface: #111114;
+  --bg-surface-elevated: #18181c;
+  --bg-hover: #1f1f24;
+
+  --border-hairline: rgba(255, 255, 255, 0.08);
+  --border-subtle: #27272a;
+  --border-strong: #3f3f46;
+
+  --text-primary: #f4f4f5;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --text-faint: #52525b;
+
+  --flame-amber: #f59e0b;
+  --flame-warm: #fbbf24;
+  --flame-deep: #ea580c;
+  --flame-glow: rgba(245, 158, 11, 0.18);
+
+  --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-serif: 'Playfair Display', Georgia, serif;
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-pill: 9999px;
+
+  --container-max: 680px;
+}
+
+/* ---------------- Global Reset & Typography ---------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--bg-black);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.65;
+  background-color: var(--bg-black);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ---------------- Atmospheric Canvas ---------------- */
+#ambient-canvas,
+#confetti-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+
+#ambient-canvas {
+  z-index: 0;
+  opacity: 0.65;
+}
+
+#confetti-canvas {
+  z-index: 999;
+}
+
+.site-wrapper {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 24px 100px;
+}
+
+/* ---------------- Minimal Monospace Accents ---------------- */
+.mono-text, .mono-date, .mono-meta, .sub-label, .cell-mono, .callout-mono, .sealed-status-mono {
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ---------------- Minimalist Sticky Header ---------------- */
+.minimal-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto 30px;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(9, 9, 11, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.mono-date {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.nav-separator {
+  color: var(--text-faint);
+}
+
+.nav-chapter {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.nav-tools {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid var(--border-hairline);
+  color: var(--text-secondary);
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.icon-btn:hover {
+  background: var(--bg-surface);
+  border-color: var(--border-subtle);
+  color: var(--text-primary);
+}
+
+.icon-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.audio-icon.audio-playing {
+  display: none;
+}
+
+.audio-active .audio-icon.audio-muted {
+  display: none;
+}
+
+.audio-active .audio-icon.audio-playing {
+  display: block;
+  stroke: var(--flame-amber);
+}
+
+/* ---------------- Hero Section ---------------- */
+.hero-block {
+  padding: 40px 0 50px;
+}
+
+.sub-label {
+  font-size: 0.75rem;
+  color: var(--flame-amber);
+  margin-bottom: 14px;
+  display: block;
+}
+
+.hero-heading {
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.hero-heading .bro-name-target {
+  color: var(--text-primary);
+}
+
+.hero-subtext {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 520px;
+}
+
+/* ---------------- Minimalist Architectural Candle ---------------- */
+.candle-installation {
+  position: relative;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-sm);
+  padding: 50px 20px 40px;
+  margin-bottom: 60px;
+  text-align: center;
+  overflow: hidden;
+  transition: border-color 0.4s ease;
+}
+
+.candle-ambient-light {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, var(--flame-glow) 0%, rgba(245, 158, 11, 0.04) 50%, transparent 70%);
+  pointer-events: none;
+  filter: blur(30px);
+  z-index: 1;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.candle-extinguished .candle-ambient-light {
+  opacity: 0.05;
+  transform: translate(-50%, -50%) scale(0.6);
+}
+
+.candle-stage-clean {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 220px;
+  margin-bottom: 24px;
+}
+
+.candle-pillar-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  padding: 10px;
+}
+
+/* Smoke canvas positioned precisely over the wick */
+#smoke-canvas {
+  position: absolute;
+  top: -110px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 30;
+}
+
+/* The Minimalist Organic Flame */
+.flame-element {
+  position: relative;
+  width: 20px;
+  height: 36px;
+  margin-bottom: 2px;
+  transform-origin: center bottom;
+  animation: gentle-flicker 2.8s infinite ease-in-out;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.flame-glow-halo {
+  position: absolute;
+  inset: -12px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.45) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(4px);
+  pointer-events: none;
+}
+
+.flame-tear {
+  position: absolute;
+  border-radius: 50% 50% 35% 35% / 70% 70% 30% 30%;
+}
+
+.flame-main {
+  inset: 0;
+  background: linear-gradient(180deg, var(--flame-warm) 10%, var(--flame-amber) 60%, var(--flame-deep) 100%);
+  box-shadow: 0 0 16px rgba(245, 158, 11, 0.7);
+}
+
+.flame-inner {
+  bottom: 2px;
+  left: 3px;
+  right: 3px;
+  height: 24px;
+  background: linear-gradient(180deg, #fff 15%, var(--flame-warm) 80%);
+}
+
+.flame-white {
+  bottom: 2px;
+  left: 6px;
+  right: 6px;
+  height: 12px;
+  background: #ffffff;
+  filter: blur(0.5px);
+}
+
+@keyframes gentle-flicker {
+  0%, 100% {
+    transform: rotate(-1deg) scaleY(1);
+  }
+  30% {
+    transform: rotate(1.5deg) scaleY(1.05) scaleX(0.96);
+  }
+  60% {
+    transform: rotate(-1.5deg) scaleY(0.96) scaleX(1.02);
+  }
+  85% {
+    transform: rotate(1deg) scaleY(1.02) scaleX(0.98);
+  }
+}
+
+/* Extinguished flame state */
+.candle-extinguished .flame-element {
+  opacity: 0;
+  transform: scale(0.1) translateY(8px);
+  pointer-events: none;
+}
+
+/* Wick */
+.wick-stem {
+  width: 3px;
+  height: 10px;
+  background: #18181b;
+  border-radius: 2px 2px 0 0;
+  position: relative;
+}
+
+.wick-stem::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #f59e0b;
+  box-shadow: 0 0 4px #fbbf24;
+  transition: all 0.4s ease;
+}
+
+.candle-extinguished .wick-stem::after {
+  background: #713f12;
+  box-shadow: 0 0 2px #ea580c;
+  animation: smolder 2.5s ease-out forwards;
+}
+
+@keyframes smolder {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Monolith Candle Body */
+.monolith-candle {
+  width: 58px;
+  height: 94px;
+  background: linear-gradient(180deg, #27272a 0%, #1f1f23 60%, #18181b 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px 4px 2px 2px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.12), 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.monolith-rim {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 4px;
+  background: #3f3f46;
+  border-radius: 4px 4px 0 0;
+}
+
+.monolith-face {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.monolith-number {
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.04em;
+  opacity: 0.9;
+}
+
+.monolith-line {
+  width: 14px;
+  height: 1px;
+  background: var(--text-faint);
+}
+
+/* Pedestal */
+.pedestal-disk {
+  width: 90px;
+  height: 6px;
+  background: #18181b;
+  border: 1px solid var(--border-subtle);
+  border-radius: 3px;
+  margin-top: 1px;
+}
+
+.pedestal-shadow {
+  width: 110px;
+  height: 12px;
+  background: radial-gradient(ellipse, rgba(0, 0, 0, 0.7) 0%, transparent 70%);
+  margin-top: 1px;
+}
+
+/* Guidance & Buttons */
+.candle-action-prompt {
+  position: relative;
+  z-index: 2;
+}
+
+.candle-guidance {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 18px;
+}
+
+.candle-action-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Minimalist Button Styles */
+.minimal-pill-btn {
+  background: var(--text-primary);
+  color: var(--bg-black);
+  border: none;
+  padding: 10px 22px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.minimal-pill-btn:hover {
+  background: #ffffff;
+  transform: translateY(-1px);
+}
+
+.minimal-ghost-btn {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  padding: 10px 20px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.minimal-ghost-btn:hover {
+  background: var(--bg-surface-elevated);
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+}
+
+.small-btn {
+  padding: 8px 18px;
+  font-size: 0.82rem;
+}
+
+/* Wish Sealed State */
+.wish-sealed-message {
+  position: relative;
+  z-index: 3;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-hairline);
+  animation: fade-in-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sealed-status-mono {
+  font-size: 0.72rem;
+  color: var(--flame-amber);
+  margin-bottom: 8px;
+}
+
+.sealed-lead {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.sealed-detail {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  max-width: 480px;
+  margin: 0 auto 14px;
+}
+
+.minimal-text-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.minimal-text-btn:hover {
+  color: var(--text-primary);
+}
+
+/* ---------------- Editorial Letter Section ---------------- */
+.letter-editorial {
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 45px 0 50px;
+  margin-bottom: 60px;
+}
+
+.editorial-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  color: var(--text-faint);
+  font-size: 0.72rem;
+}
+
+.editorial-title {
+  font-size: clamp(1.8rem, 4.5vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 22px;
+  color: #fff;
+}
+
+.lead-editorial-p {
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  font-weight: 400;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.clean-quote {
+  border-left: 2px solid var(--flame-amber);
+  padding: 14px 0 14px 20px;
+  margin: 28px 0;
+  background: rgba(245, 158, 11, 0.03);
+}
+
+.clean-quote p {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: #fff;
+  font-style: italic;
+}
+
+.clean-quote strong {
+  font-style: normal;
+  color: var(--flame-amber);
+  font-family: var(--font-sans);
+  font-weight: 600;
+}
+
+.editorial-body p {
+  font-size: 1.02rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 22px;
+}
+
+.minimal-callout-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xs);
+  padding: 20px 22px;
+  margin: 28px 0;
+}
+
+.callout-mono {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.minimal-callout-box p {
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin-bottom: 0 !important;
+}
+
+.editorial-signature {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-hairline);
+}
+
+.sig-title {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.sig-handwritten {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--text-primary);
+}
+
+/* ---------------- Minimal Section Meta ---------------- */
+.section-meta-header {
+  margin-bottom: 24px;
+}
+
+.mono-meta {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.section-meta-header h3 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+
+/* ---------------- Minimal Brotherhood Code (Grid) ---------------- */
+.creed-minimal {
+  margin-bottom: 60px;
+}
+
+.minimal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--border-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+}
+
+.grid-cell {
+  background: var(--bg-surface);
+  padding: 26px 22px;
+  transition: background 0.2s ease;
+}
+
+.grid-cell:hover {
+  background: var(--bg-surface-elevated);
+}
+
+.cell-mono {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.grid-cell h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.grid-cell p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ---------------- Minimal Drawers ("Open When...") ---------------- */
+.vault-minimal {
+  margin-bottom: 60px;
+}
+
+.drawers-list {
+  border-top: 1px solid var(--border-subtle);
+}
+
+.drawer-item {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.drawer-trigger {
+  width: 100%;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  cursor: pointer;
+  text-align: left;
+  transition: opacity 0.2s ease;
+}
+
+.drawer-trigger:hover {
+  opacity: 0.8;
+}
+
+.drawer-num {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  width: 40px;
+  flex-shrink: 0;
+}
+
+.drawer-title {
+  flex-grow: 1;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.drawer-plus {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  transition: transform 0.25s ease;
+}
+
+.drawer-item.open .drawer-plus {
+  transform: rotate(45deg);
+  color: var(--flame-amber);
+}
+
+.drawer-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.drawer-item.open .drawer-body {
+  max-height: 300px;
+}
+
+.drawer-content-clean {
+  padding: 0 0 24px 40px;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+.drawer-content-clean p:not(:last-child) {
+  margin-bottom: 12px;
+}
+
+/* ---------------- Minimal Memory Frame ---------------- */
+.memory-minimal {
+  margin-bottom: 60px;
+}
+
+.clean-frame {
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  border-radius: var(--radius-xs);
+  padding: 16px;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.clean-frame:hover {
+  border-color: var(--border-strong);
+}
+
+.clean-frame-viewport {
+  width: 100%;
+  height: 220px;
+  background: #0d0d0f;
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.default-illustration {
+  text-align: center;
+}
+
+.monochrome-graphic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.graphic-line {
+  width: 30px;
+  height: 1px;
+  background: var(--text-faint);
+}
+
+.graphic-initials {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--text-secondary);
+}
+
+.upload-hint {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.custom-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.clean-frame-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 14px;
+  padding: 0 4px;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* ---------------- Minimal Goal Section ---------------- */
+.goal-minimal {
+  margin-bottom: 60px;
+}
+
+.clean-form {
+  margin-top: 12px;
+}
+
+.input-line-wrap {
+  display: flex;
+  gap: 10px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+  padding: 4px 6px 4px 18px;
+  transition: border-color 0.2s ease;
+}
+
+.input-line-wrap:focus-within {
+  border-color: var(--border-strong);
+}
+
+.input-line-wrap input {
+  flex-grow: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+}
+
+.input-line-wrap input::placeholder {
+  color: var(--text-muted);
+}
+
+.saved-commitment-box {
+  margin-top: 16px;
+  padding: 16px 20px;
+  background: var(--bg-surface);
+  border-left: 2px solid var(--flame-amber);
+  border-radius: 0 var(--radius-xs) var(--radius-xs) 0;
+  animation: fade-in-up 0.3s ease;
+}
+
+.saved-commitment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.clear-tag {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.clear-tag:hover {
+  color: #ef4444;
+}
+
+.commitment-tag {
+  font-size: 0.68rem;
+  color: var(--flame-amber);
+  display: block;
+}
+
+.commitment-text {
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  font-style: italic;
+}
+
+/* ---------------- Minimal Footer ---------------- */
+.minimal-footer {
+  padding-top: 40px;
+  border-top: 1px solid var(--border-hairline);
+  text-align: center;
+}
+
+.footer-tagline {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.footer-sub {
+  font-size: 0.8rem;
+  color: var(--text-faint);
+}
+
+/* ---------------- Minimal Modal ---------------- */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+}
+
+.minimal-modal-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 28px 24px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  animation: fade-in-up 0.25s ease;
+}
+
+.modal-head-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.modal-head-row h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.modal-x {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.4rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.modal-note {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.field-item {
+  margin-bottom: 16px;
+}
+
+.field-item label {
+  display: block;
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.field-item input {
+  width: 100%;
+  background: var(--bg-black);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xs);
+  padding: 10px 12px;
+  color: #fff;
+  font-size: 0.92rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.field-item input:focus {
+  border-color: var(--border-strong);
+}
+
+.modal-btn-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+/* ---------------- Helpers ---------------- */
+.hidden {
+  display: none !important;
+}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 600px) {
+  .minimal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .main-content {
+    padding: 0 16px 80px;
+  }
+
+  .input-line-wrap {
+    flex-direction: column;
+    border-radius: var(--radius-sm);
+    padding: 12px;
+  }
+
+  .small-btn {
+    width: 100%;
+  }
+
+  .drawer-content-clean {
+    padding-left: 0;
+  }
+}
